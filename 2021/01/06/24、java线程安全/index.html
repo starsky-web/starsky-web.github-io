@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="24、线程安全 1、线程安全问题概述多个线程在调用同一共享资源时可能会出现访问到不存在的数据或重复访问某个数据的问题 2、解决方法一、同步代码块格式 123synchronized(锁对象)&amp;#123;	可能出问题的代码&amp;#125;; 锁对象可以是任意对象，需在synchronized代码块外定义，执行代码块内容时会先获取锁对象，但锁对象只有一个，后来的线程就会进入等待状态。 即可保证共享资源中只">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/01/06/24%E3%80%81java%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="24、线程安全 1、线程安全问题概述多个线程在调用同一共享资源时可能会出现访问到不存在的数据或重复访问某个数据的问题 2、解决方法一、同步代码块格式 123synchronized(锁对象)&amp;#123;	可能出问题的代码&amp;#125;; 锁对象可以是任意对象，需在synchronized代码块外定义，执行代码块内容时会先获取锁对象，但锁对象只有一个，后来的线程就会进入等待状态。 即可保证共享资源中只">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-06T14:13:22.630Z">
+<meta property="article:modified_time" content="2020-03-30T03:21:15.787Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/01/06/24%E3%80%81java%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/06/24%E3%80%81java%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-06 22:13:22" itemprop="dateCreated datePublished" datetime="2021-01-06T22:13:22+08:00">2021-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-30 11:21:15" itemprop="dateModified" datetime="2020-03-30T11:21:15+08:00">2020-03-30</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="24、线程安全"><a href="#24、线程安全" class="headerlink" title="24、线程安全"></a>24、线程安全</h1><hr>
+<h1 id="1、线程安全问题概述"><a href="#1、线程安全问题概述" class="headerlink" title="1、线程安全问题概述"></a>1、线程安全问题概述</h1><p>多个线程在调用同一共享资源时可能会出现访问到不存在的数据或重复访问某个数据的问题</p>
+<h1 id="2、解决方法一、同步代码块"><a href="#2、解决方法一、同步代码块" class="headerlink" title="2、解决方法一、同步代码块"></a>2、解决方法一、同步代码块</h1><p>格式</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">synchronized</span>(锁对象)&#123;</span><br><span class="line">	可能出问题的代码</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<p>锁对象可以是任意对象，需在synchronized代码块外定义，执行代码块内容时会先获取锁对象，但锁对象只有一个，后来的线程就会进入等待状态。</p>
+<p>即可保证共享资源中只有一个线程在访问</p>
+<h1 id="3、解决方法二、同步方法"><a href="#3、解决方法二、同步方法" class="headerlink" title="3、解决方法二、同步方法"></a>3、解决方法二、同步方法</h1><p>思路与方法一相似，只是把访问了共享数据的代码放在方法中</p>
+<p>使用步骤：</p>
+<ol>
+<li>把访问了共享数据的代码抽取出来，放到一个方法中</li>
+<li>在方法上添加修饰符：synchronized</li>
+</ol>
+<p>格式：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">修饰符 <span class="keyword">synchronized</span> 返回值 方法名()&#123;&#125;</span><br></pre></td></tr></table></figure>
+<p>注意：此方法实际也使用了锁对象，锁对象是方法调用者</p>
+<h1 id="4、解决方法三、Lock锁"><a href="#4、解决方法三、Lock锁" class="headerlink" title="4、解决方法三、Lock锁"></a>4、解决方法三、Lock锁</h1><p>Lock锁比前两种更好用，使用更广泛</p>
+<p>Lock接口中有两种常用方法</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">lock</span><span class="params">()</span></span>;<span class="comment">//获取锁</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">unlock</span><span class="params">()</span></span>;<span class="comment">//释放锁</span></span><br></pre></td></tr></table></figure>
+<p>步骤</p>
+<ol>
+<li>在成员位置，创建lock的实现类Reentrantiock的对象</li>
+<li>在出安全问题的代码前使用lock方法</li>
+<li>在代码后用unlock方法</li>
+</ol>
+<p>示例</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Lock l = <span class="keyword">new</span> ReentrantLock(); <span class="comment">//创建锁对象</span></span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (<span class="keyword">true</span>) &#123;</span><br><span class="line">            l.lock();<span class="comment">//获取锁</span></span><br><span class="line">            <span class="keyword">if</span> (ticket &gt; <span class="number">0</span>) &#123;</span><br><span class="line">                <span class="comment">//提高安全问题出现的概率，使用睡眠</span></span><br><span class="line">                <span class="keyword">try</span> &#123;</span><br><span class="line">                    Thread.sleep(<span class="number">10</span>);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                    e.printStackTrace();</span><br><span class="line">                &#125;</span><br><span class="line">                System.out.println(Thread.currentThread().getName() + <span class="string">&quot;正在卖第&quot;</span> + ticket + <span class="string">&quot;张票&quot;</span>);</span><br><span class="line">                ticket--;</span><br><span class="line">            &#125;</span><br><span class="line">            l.unlock();<span class="comment">//解锁</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/06/23%E3%80%81%E7%BA%BF%E7%A8%8B%E5%AE%9E%E7%8E%B0/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/06/25%E3%80%81%E7%AD%89%E5%BE%85%E5%94%A4%E9%86%92/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#24%E3%80%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8"><span class="nav-number">1.</span> <span class="nav-text">24、线程安全</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E7%BA%BF%E7%A8%8B%E5%AE%89%E5%85%A8%E9%97%AE%E9%A2%98%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">1、线程安全问题概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%E3%80%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%B8%80%E3%80%81%E5%90%8C%E6%AD%A5%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="nav-number">3.</span> <span class="nav-text">2、解决方法一、同步代码块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%E3%80%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%BA%8C%E3%80%81%E5%90%8C%E6%AD%A5%E6%96%B9%E6%B3%95"><span class="nav-number">4.</span> <span class="nav-text">3、解决方法二、同步方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4%E3%80%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%B3%95%E4%B8%89%E3%80%81Lock%E9%94%81"><span class="nav-number">5.</span> <span class="nav-text">4、解决方法三、Lock锁</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="4、数组 1、数组1.2、定义数组是可以存储多个相同数据类型的数据结构 1.3、数组的声明数据类型[] 数组的名称 int[] ages;数据类型 数组的名称[] String names[]; 1.4、数组的初始化静态初始化： 声明同时赋值： 1int[] ages &#x3D; &amp;#123;18,19,20&amp;#125;; 取出数组中的元素应该通过下标，下标从0开始 第一个元素为ages[0] 数组长度数">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/01/06/04%E3%80%81%E6%95%B0%E7%BB%84/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="4、数组 1、数组1.2、定义数组是可以存储多个相同数据类型的数据结构 1.3、数组的声明数据类型[] 数组的名称 int[] ages;数据类型 数组的名称[] String names[]; 1.4、数组的初始化静态初始化： 声明同时赋值： 1int[] ages &#x3D; &amp;#123;18,19,20&amp;#125;; 取出数组中的元素应该通过下标，下标从0开始 第一个元素为ages[0] 数组长度数">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-06T14:13:22.548Z">
+<meta property="article:modified_time" content="2020-03-27T02:10:23.892Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/01/06/04%E3%80%81%E6%95%B0%E7%BB%84/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/06/04%E3%80%81%E6%95%B0%E7%BB%84/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-06 22:13:22" itemprop="dateCreated datePublished" datetime="2021-01-06T22:13:22+08:00">2021-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-27 10:10:23" itemprop="dateModified" datetime="2020-03-27T10:10:23+08:00">2020-03-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="4、数组"><a href="#4、数组" class="headerlink" title="4、数组"></a>4、数组</h1><hr>
+<h1 id="1、数组"><a href="#1、数组" class="headerlink" title="1、数组"></a>1、数组</h1><h2 id="1-2、定义"><a href="#1-2、定义" class="headerlink" title="1.2、定义"></a>1.2、定义</h2><p>数组是可以存储多个相同数据类型的数据结构</p>
+<h2 id="1-3、数组的声明"><a href="#1-3、数组的声明" class="headerlink" title="1.3、数组的声明"></a>1.3、数组的声明</h2><p>数据类型[] 数组的名称 int[] ages;<br>数据类型 数组的名称[] String names[];</p>
+<h2 id="1-4、数组的初始化"><a href="#1-4、数组的初始化" class="headerlink" title="1.4、数组的初始化"></a>1.4、数组的初始化</h2><p><strong>静态初始化：</strong></p>
+<p>声明同时赋值：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] ages = &#123;<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>&#125;;</span><br></pre></td></tr></table></figure>
+<p>取出数组中的元素应该通过下标，下标从0开始</p>
+<p>第一个元素为ages[0]</p>
+<p><strong>数组长度</strong><code>数组名称.length</code></p>
+<p><strong>动态初始化</strong>：</p>
+<p>1、先声明，再初始化，最后赋值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] ages;<span class="comment">//数组的声明</span></span><br><span class="line">ages = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];<span class="comment">//数组的初始化，必须指定数组元素的个数,默认值为0</span></span><br><span class="line">ages[<span class="number">0</span>] = <span class="number">18</span>;</span><br><span class="line">ages[<span class="number">1</span>] = <span class="number">19</span>;</span><br><span class="line">ages[<span class="number">2</span>] = <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<p>2、声明同时初始化，最后赋值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] ages = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">3</span>];</span><br><span class="line">age[<span class="number">0</span>] = <span class="number">18</span>;</span><br></pre></td></tr></table></figure>
+<p>3、声明同时初始化并赋值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] ages = <span class="keyword">new</span> <span class="keyword">int</span>[] &#123;<span class="number">18</span>,<span class="number">19</span>,<span class="number">20</span>&#125;;</span><br></pre></td></tr></table></figure>
+<h2 id="1-5、数组的求和"><a href="#1-5、数组的求和" class="headerlink" title="1.5、数组的求和"></a>1.5、数组的求和</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] ages = &#123;<span class="number">23</span>,<span class="number">12</span>,<span class="number">56</span>,<span class="number">78</span>,<span class="number">34</span>,<span class="number">22</span>,<span class="number">11</span>,<span class="number">45</span>,<span class="number">34</span>,<span class="number">56</span>&#125;;</span><br><span class="line"><span class="keyword">int</span> sum = <span class="number">0</span>;<span class="comment">//用来存储数组元素的和值</span></span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ages.length;++i)</span><br><span class="line">&#123;</span><br><span class="line">	sum += ages[i];</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(sum/ages.length);</span><br></pre></td></tr></table></figure>
+<h2 id="1-6、冒泡排序"><a href="#1-6、冒泡排序" class="headerlink" title="1.6、冒泡排序"></a>1.6、冒泡排序</h2><p>以升序为例</p>
+<p>冒泡排序会将相邻的两个数进行比较，将较大的放在后面，执行一轮后会将最大的数放在最后面，然后进行下一轮，把第二大的数放在倒数第二位，以此类推，总共要执行数组长度-1轮。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] ages = &#123;<span class="number">19</span>,<span class="number">16</span>,<span class="number">15</span>,<span class="number">17</span>,<span class="number">10</span>,<span class="number">5</span>&#125;;</span><br><span class="line">			<span class="comment">/**</span></span><br><span class="line"><span class="comment">			 * 对当前数组进行升序排列</span></span><br><span class="line"><span class="comment">			 * 冒泡排序</span></span><br><span class="line"><span class="comment">			 * 第一轮:将数组中的最大值放到了最后</span></span><br><span class="line"><span class="comment">			 * 16 19 15 17 10 5 (1-2)</span></span><br><span class="line"><span class="comment">			 * 16 15 19 17 10 5 (2-3)</span></span><br><span class="line"><span class="comment">			 * 16 15 17 19 10 5 (3-4)</span></span><br><span class="line"><span class="comment">			 * 16 15 17 10 19 5 (4-5)</span></span><br><span class="line"><span class="comment">			 * 16 15 17 10 5 19 (5-6)</span></span><br><span class="line"><span class="comment">			 * </span></span><br><span class="line"><span class="comment">			 */</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ages.length-<span class="number">1</span>;++i)</span><br><span class="line">			&#123;<span class="comment">//第一轮代码实现</span></span><br><span class="line">				<span class="keyword">if</span>(ages[i]&gt;ages[i+<span class="number">1</span>])</span><br><span class="line">				&#123;</span><br><span class="line">					<span class="comment">//交换位置</span></span><br><span class="line">					<span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">					num =ages[i];</span><br><span class="line">					ages[i] = ages[i+<span class="number">1</span>];</span><br><span class="line">					ages[i+<span class="number">1</span>] = num;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br></pre></td></tr></table></figure>
+<p>如果不使用嵌套，整个过程的代码量会非常多</p>
+<p>以下是使用循环嵌套的</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">1</span>;j&lt;ages.length;++j)</span><br><span class="line">		&#123; <span class="comment">//j表示数组排序要比较的轮数</span></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;ages.length-j;++i)&#123;</span><br><span class="line">				<span class="keyword">if</span>(ages[i]&gt;ages[i+<span class="number">1</span>])&#123;</span><br><span class="line">					<span class="comment">//交换位置</span></span><br><span class="line">					<span class="keyword">int</span> num = <span class="number">0</span>;</span><br><span class="line">					num = ages[i];</span><br><span class="line">					ages[i] = ages[i+<span class="number">1</span>];</span><br><span class="line">					ages[i+<span class="number">1</span>] = num;</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<p>这是一段可以执行整个冒泡排序过程的代码</p>
+<h2 id="1-7、数组索引越界问题"><a href="#1-7、数组索引越界问题" class="headerlink" title="1.7、数组索引越界问题"></a>1.7、数组索引越界问题</h2><p>在使用数组时索引处理不当，导致使用了不存在的索引，从而引发错误，常见于循环中，对循环的次数把握不好就会出现此问题。</p>
+<h2 id="1-8、空指针异常"><a href="#1-8、空指针异常" class="headerlink" title="1.8、空指针异常"></a>1.8、空指针异常</h2><p>使用了不存在的数组（未初始化，或复制为null）</p>
+<h2 id="1-9、获取数组的长度"><a href="#1-9、获取数组的长度" class="headerlink" title="1.9、获取数组的长度"></a>1.9、获取数组的长度</h2><p>使用<code>数组名.length</code>即可</p>
+<p><strong>注意</strong>：数组的长度初始化后不可改变</p>
+<p><strong>如果再次初始化会再创建一个同名的数组（地址不同）并覆盖原来的数组</strong></p>
+<h2 id="1-10、数组的反转"><a href="#1-10、数组的反转" class="headerlink" title="1.10、数组的反转"></a>1.10、数组的反转</h2><p>例如：原数组{1,2,3,4}     反转后{4,3,2,1}</p>
+<p>有多种方法可以实现。</p>
+<p>其实就是<strong>对称位置</strong>的元素交换，需要同时使用两个索引</p>
+<p>需要创建一个空变量，然后交换对称位置的元素即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span>[] array = &#123;<span class="number">10</span>,<span class="number">20</span>,<span class="number">30</span>,<span class="number">40</span>,<span class="number">50</span>&#125;;</span><br><span class="line">        <span class="comment">//遍历数组本来的样子</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length; i++) &#123;</span><br><span class="line">            System.out.println(array[i]);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(<span class="string">&quot;==========&quot;</span>);</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 初始化语句：int min = 0, max = array.length -1</span></span><br><span class="line"><span class="comment">         * 条件判断： min&lt;max</span></span><br><span class="line"><span class="comment">         * 步进表达式：min++,max++</span></span><br><span class="line"><span class="comment">         * 循环体：三个变量倒手</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> min = <span class="number">0</span>, max = array.length-<span class="number">1</span>;min &lt; max; min++, max--)&#123;</span><br><span class="line">            <span class="keyword">int</span> temp = array[min];</span><br><span class="line">            array[min] = array[max];</span><br><span class="line">            array[max] = temp;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/06/03%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/06/05%E3%80%81%E6%96%B9%E6%B3%95/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#4%E3%80%81%E6%95%B0%E7%BB%84"><span class="nav-number">1.</span> <span class="nav-text">4、数组</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E6%95%B0%E7%BB%84"><span class="nav-number">2.</span> <span class="nav-text">1、数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2%E3%80%81%E5%AE%9A%E4%B9%89"><span class="nav-number">2.1.</span> <span class="nav-text">1.2、定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-3%E3%80%81%E6%95%B0%E7%BB%84%E7%9A%84%E5%A3%B0%E6%98%8E"><span class="nav-number">2.2.</span> <span class="nav-text">1.3、数组的声明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-4%E3%80%81%E6%95%B0%E7%BB%84%E7%9A%84%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">2.3.</span> <span class="nav-text">1.4、数组的初始化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-5%E3%80%81%E6%95%B0%E7%BB%84%E7%9A%84%E6%B1%82%E5%92%8C"><span class="nav-number">2.4.</span> <span class="nav-text">1.5、数组的求和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-6%E3%80%81%E5%86%92%E6%B3%A1%E6%8E%92%E5%BA%8F"><span class="nav-number">2.5.</span> <span class="nav-text">1.6、冒泡排序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-7%E3%80%81%E6%95%B0%E7%BB%84%E7%B4%A2%E5%BC%95%E8%B6%8A%E7%95%8C%E9%97%AE%E9%A2%98"><span class="nav-number">2.6.</span> <span class="nav-text">1.7、数组索引越界问题</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-8%E3%80%81%E7%A9%BA%E6%8C%87%E9%92%88%E5%BC%82%E5%B8%B8"><span class="nav-number">2.7.</span> <span class="nav-text">1.8、空指针异常</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-9%E3%80%81%E8%8E%B7%E5%8F%96%E6%95%B0%E7%BB%84%E7%9A%84%E9%95%BF%E5%BA%A6"><span class="nav-number">2.8.</span> <span class="nav-text">1.9、获取数组的长度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-10%E3%80%81%E6%95%B0%E7%BB%84%E7%9A%84%E5%8F%8D%E8%BD%AC"><span class="nav-number">2.9.</span> <span class="nav-text">1.10、数组的反转</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

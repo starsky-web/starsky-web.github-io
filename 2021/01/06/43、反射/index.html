@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="43、反射 1、概述框架设计的灵魂 将类的各个组成部分封装为其他对象，这就是反射机制 可以在程序运行过程中操作这些对象 可以解耦，提高程序可拓展性 2、获取Class对象的三种方式1、源代码阶段Class.forname(‘全类名’)，将字节码文件加载进内存，返回class对象 多用于配置文件 2、类对象阶段类名.class 多用于参数传递 3、运行时阶段对象.getClass(); 多用于对象的">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2021/01/06/hello-world/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/01/06/43%E3%80%81%E5%8F%8D%E5%B0%84/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="43、反射 1、概述框架设计的灵魂 将类的各个组成部分封装为其他对象，这就是反射机制 可以在程序运行过程中操作这些对象 可以解耦，提高程序可拓展性 2、获取Class对象的三种方式1、源代码阶段Class.forname(‘全类名’)，将字节码文件加载进内存，返回class对象 多用于配置文件 2、类对象阶段类名.class 多用于参数传递 3、运行时阶段对象.getClass(); 多用于对象的">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-06T13:10:19.873Z">
-<meta property="article:modified_time" content="2021-01-06T13:10:19.873Z">
+<meta property="article:published_time" content="2021-01-06T14:13:22.721Z">
+<meta property="article:modified_time" content="2020-06-01T03:13:22.217Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/01/06/hello-world/">
+<link rel="canonical" href="http://example.com/2021/01/06/43%E3%80%81%E5%8F%8D%E5%B0%84/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>Hello World | Hexo</title>
+  <title> | Hexo</title>
   
 
 
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/06/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/06/43%E3%80%81%E5%8F%8D%E5%B0%84/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          
         </h1>
 
         <div class="post-meta">
@@ -173,8 +173,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-01-06 21:10:19" itemprop="dateCreated datePublished" datetime="2021-01-06T21:10:19+08:00">2021-01-06</time>
+              <time title="创建时间：2021-01-06 22:13:22" itemprop="dateCreated datePublished" datetime="2021-01-06T22:13:22+08:00">2021-01-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-01 11:13:22" itemprop="dateModified" datetime="2020-06-01T11:13:22+08:00">2020-06-01</time>
+              </span>
 
           
 
@@ -187,15 +194,32 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h1 id="43、反射"><a href="#43、反射" class="headerlink" title="43、反射"></a>43、反射</h1><hr>
+<h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><p>框架设计的灵魂</p>
+<p>将类的各个组成部分封装为其他对象，这就是反射机制</p>
+<p>可以在程序运行过程中操作这些对象</p>
+<p>可以解耦，提高程序可拓展性</p>
+<h1 id="2、获取Class对象的三种方式"><a href="#2、获取Class对象的三种方式" class="headerlink" title="2、获取Class对象的三种方式"></a>2、获取Class对象的三种方式</h1><h2 id="1、源代码阶段"><a href="#1、源代码阶段" class="headerlink" title="1、源代码阶段"></a>1、源代码阶段</h2><p>Class.forname(‘全类名’)，将字节码文件加载进内存，返回class对象</p>
+<p>多用于配置文件</p>
+<h2 id="2、类对象阶段"><a href="#2、类对象阶段" class="headerlink" title="2、类对象阶段"></a>2、类对象阶段</h2><p>类名.class</p>
+<p>多用于参数传递</p>
+<h2 id="3、运行时阶段"><a href="#3、运行时阶段" class="headerlink" title="3、运行时阶段"></a>3、运行时阶段</h2><p>对象.getClass();</p>
+<p>多用于对象的获取字节码</p>
+<h1 id="3、class对象的功能"><a href="#3、class对象的功能" class="headerlink" title="3、class对象的功能"></a>3、class对象的功能</h1><p><strong>获取的功能</strong></p>
+<h2 id="获取成员变量们"><a href="#获取成员变量们" class="headerlink" title="获取成员变量们"></a>获取成员变量们</h2><p>getFields(),获取所有public修饰的成员变量</p>
+<p>getField(String name)</p>
+<p>getDeclareFields(String name)，获取所有的成员变量</p>
+<h2 id="获取成员方法们"><a href="#获取成员方法们" class="headerlink" title="获取成员方法们"></a>获取成员方法们</h2><p>getMethods()</p>
+<p>getMethod()</p>
+<p>getDeclareMethods()</p>
+<p>getDeclareMethod()</p>
+<h2 id="获取构造方法们"><a href="#获取构造方法们" class="headerlink" title="获取构造方法们"></a>获取构造方法们</h2><p>getConstructors(),获取所有的构造方法</p>
+<p>getConstructor(),获取一个</p>
+<p>getDeclareConstructors</p>
+<p>getDeclareConstructor</p>
+<h2 id="获取类名"><a href="#获取类名" class="headerlink" title="获取类名"></a>获取类名</h2><p>getName</p>
+<p><strong>忽略安全检查的代码</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">变量名.setAccessible(<span class="keyword">true</span>)</span><br><span class="line">    <span class="comment">//暴力反射</span></span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -210,9 +234,12 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/01/06/01%E3%80%81%E5%AE%89%E8%A3%85/" rel="next" title="">
+    <a href="/2021/01/06/42%E3%80%81Junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/06/44%E3%80%81%E6%B3%A8%E8%A7%A3/" rel="next" title="">
        <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -273,7 +300,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#43%E3%80%81%E5%8F%8D%E5%B0%84"><span class="nav-number">1.</span> <span class="nav-text">43、反射</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">1、概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%E3%80%81%E8%8E%B7%E5%8F%96Class%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%B8%89%E7%A7%8D%E6%96%B9%E5%BC%8F"><span class="nav-number">3.</span> <span class="nav-text">2、获取Class对象的三种方式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1%E3%80%81%E6%BA%90%E4%BB%A3%E7%A0%81%E9%98%B6%E6%AE%B5"><span class="nav-number">3.1.</span> <span class="nav-text">1、源代码阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E7%B1%BB%E5%AF%B9%E8%B1%A1%E9%98%B6%E6%AE%B5"><span class="nav-number">3.2.</span> <span class="nav-text">2、类对象阶段</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3%E3%80%81%E8%BF%90%E8%A1%8C%E6%97%B6%E9%98%B6%E6%AE%B5"><span class="nav-number">3.3.</span> <span class="nav-text">3、运行时阶段</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%E3%80%81class%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="nav-number">4.</span> <span class="nav-text">3、class对象的功能</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%88%90%E5%91%98%E5%8F%98%E9%87%8F%E4%BB%AC"><span class="nav-number">4.1.</span> <span class="nav-text">获取成员变量们</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%88%90%E5%91%98%E6%96%B9%E6%B3%95%E4%BB%AC"><span class="nav-number">4.2.</span> <span class="nav-text">获取成员方法们</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E6%9E%84%E9%80%A0%E6%96%B9%E6%B3%95%E4%BB%AC"><span class="nav-number">4.3.</span> <span class="nav-text">获取构造方法们</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E8%8E%B7%E5%8F%96%E7%B1%BB%E5%90%8D"><span class="nav-number">4.4.</span> <span class="nav-text">获取类名</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

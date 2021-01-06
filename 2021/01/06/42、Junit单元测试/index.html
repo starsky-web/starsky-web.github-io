@@ -20,15 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta property="og:type" content="website">
+  <meta name="description" content="42、Junit单元测试 1、测试分类1.1、黑盒测试输入一个值，看输出的值是否符合预期，不需要写代码 1.2、白盒测试关注程序运行过程，需要写一些代码 2、Junit使用Junit属于白盒测试 步骤  定义一个测试类（测试用例）建议类名为被测试类名Test 包名：xxx.xxx.xxx.test 定义测试方法，可以独立运行。建议方法名为test测试方法名，建议返回值使用void，参数列表建议空参">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/index.html">
+<meta property="og:url" content="http://example.com/2021/01/06/42%E3%80%81Junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="42、Junit单元测试 1、测试分类1.1、黑盒测试输入一个值，看输出的值是否符合预期，不需要写代码 1.2、白盒测试关注程序运行过程，需要写一些代码 2、Junit使用Junit属于白盒测试 步骤  定义一个测试类（测试用例）建议类名为被测试类名Test 包名：xxx.xxx.xxx.test 定义测试方法，可以独立运行。建议方法名为test测试方法名，建议返回值使用void，参数列表建议空参">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-06T14:13:22.717Z">
+<meta property="article:modified_time" content="2020-06-01T01:39:54.755Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/archives/">
+<link rel="canonical" href="http://example.com/2021/01/06/42%E3%80%81Junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
 
 
 <script id="page-configurations">
@@ -36,12 +40,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>归档 | Hexo</title>
+  <title> | Hexo</title>
   
 
 
@@ -139,235 +143,103 @@
         <div class="content-wrap">
           
 
-          <div class="content archive">
+          <div class="content post posts-expand">
             
 
+    
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        
-        <span class="collection-header">还行! 目前共计 47 篇日志。 继续努力。</span>
-      </div>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/06/42%E3%80%81Junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-06 22:13:22" itemprop="dateCreated datePublished" datetime="2021-01-06T22:13:22+08:00">2021-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-01 09:39:54" itemprop="dateModified" datetime="2020-06-01T09:39:54+08:00">2020-06-01</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <span class="collection-header">2021</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-06T22:13:22+08:00"
-              content="2021-01-06">
-          01-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/06/README/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-06T22:13:22+08:00"
-              content="2021-01-06">
-          01-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/06/45%E3%80%81JDBC/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-06T22:13:22+08:00"
-              content="2021-01-06">
-          01-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/06/44%E3%80%81%E6%B3%A8%E8%A7%A3/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-06T22:13:22+08:00"
-              content="2021-01-06">
-          01-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/06/43%E3%80%81%E5%8F%8D%E5%B0%84/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-06T22:13:22+08:00"
-              content="2021-01-06">
-          01-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/06/42%E3%80%81Junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-06T22:13:22+08:00"
-              content="2021-01-06">
-          01-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/06/41%E3%80%81%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-06T22:13:22+08:00"
-              content="2021-01-06">
-          01-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/06/40%E3%80%81Stream%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-06T22:13:22+08:00"
-              content="2021-01-06">
-          01-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/06/39%E3%80%81%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-06T22:13:22+08:00"
-              content="2021-01-06">
-          01-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/06/38%E3%80%81%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2021-01-06T22:13:22+08:00"
-              content="2021-01-06">
-          01-06
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/2021/01/06/37%E3%80%81%E6%89%93%E5%8D%B0%E6%B5%81/" itemprop="url">
-            <span itemprop="name">未命名</span>
-          </a>
-      </div>
-
-    </header>
-  </article>
-
+        <h1 id="42、Junit单元测试"><a href="#42、Junit单元测试" class="headerlink" title="42、Junit单元测试"></a>42、Junit单元测试</h1><hr>
+<h1 id="1、测试分类"><a href="#1、测试分类" class="headerlink" title="1、测试分类"></a>1、测试分类</h1><h2 id="1-1、黑盒测试"><a href="#1-1、黑盒测试" class="headerlink" title="1.1、黑盒测试"></a>1.1、黑盒测试</h2><p>输入一个值，看输出的值是否符合预期，不需要写代码</p>
+<h2 id="1-2、白盒测试"><a href="#1-2、白盒测试" class="headerlink" title="1.2、白盒测试"></a>1.2、白盒测试</h2><p>关注程序运行过程，需要写一些代码</p>
+<h1 id="2、Junit使用"><a href="#2、Junit使用" class="headerlink" title="2、Junit使用"></a>2、Junit使用</h1><p>Junit属于白盒测试</p>
+<p><strong>步骤</strong></p>
+<ol>
+<li>定义一个测试类（测试用例）建议类名为被测试类名Test</li>
+<li>包名：xxx.xxx.xxx.test</li>
+<li>定义测试方法，可以独立运行。建议方法名为test测试方法名，建议返回值使用void，参数列表建议空参</li>
+<li>给方法加Test注解</li>
+<li>判定结果：红色失败，绿色成功</li>
+</ol>
+<p>需要导入Junit依赖</p>
+<h1 id="3、断言"><a href="#3、断言" class="headerlink" title="3、断言"></a>3、断言</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assert.assertEquals(<span class="number">3</span>,result);</span><br></pre></td></tr></table></figure>
+<p>传期望的值和运行得到的值</p>
+<h1 id="4、before、after注解"><a href="#4、before、after注解" class="headerlink" title="4、before、after注解"></a>4、before、after注解</h1><p>before为初始化方法，用于资源申请，所有测试方法在执行之前都会先执行该方法</p>
+<p>after释放资源方法，在所有方法执行完后会自动执行</p>
 
     </div>
-  </div>
-  
-  
-  
 
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/06/41%E3%80%81%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/06/43%E3%80%81%E5%8F%8D%E5%B0%84/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
   
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/archives/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
+  
+  
 
 
 
@@ -419,6 +291,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#42%E3%80%81Junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95"><span class="nav-number">1.</span> <span class="nav-text">42、Junit单元测试</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E6%B5%8B%E8%AF%95%E5%88%86%E7%B1%BB"><span class="nav-number">2.</span> <span class="nav-text">1、测试分类</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1%E3%80%81%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95"><span class="nav-number">2.1.</span> <span class="nav-text">1.1、黑盒测试</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2%E3%80%81%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95"><span class="nav-number">2.2.</span> <span class="nav-text">1.2、白盒测试</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%E3%80%81Junit%E4%BD%BF%E7%94%A8"><span class="nav-number">3.</span> <span class="nav-text">2、Junit使用</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%E3%80%81%E6%96%AD%E8%A8%80"><span class="nav-number">4.</span> <span class="nav-text">3、断言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4%E3%80%81before%E3%80%81after%E6%B3%A8%E8%A7%A3"><span class="nav-number">5.</span> <span class="nav-text">4、before、after注解</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

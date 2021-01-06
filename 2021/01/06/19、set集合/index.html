@@ -20,19 +20,19 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="19、set集合 1、概述set接口是Collection下的一个子接口，不允许重复，没有索引，不能使用普通for循环遍历 2、HashSet集合实现了set接口，是一个无序集合，底层是哈希表，查询速度快 2.1、使用HashSet1234&#x2F;&#x2F;创建对象,多态Set&lt;Integer&gt; set &#x3D; new HashSet&lt;&gt;();&#x2F;&#x2F;使用add方法set.add(1); 3、哈">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2021/01/06/hello-world/index.html">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/01/06/19%E3%80%81set%E9%9B%86%E5%90%88/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="19、set集合 1、概述set接口是Collection下的一个子接口，不允许重复，没有索引，不能使用普通for循环遍历 2、HashSet集合实现了set接口，是一个无序集合，底层是哈希表，查询速度快 2.1、使用HashSet1234&#x2F;&#x2F;创建对象,多态Set&lt;Integer&gt; set &#x3D; new HashSet&lt;&gt;();&#x2F;&#x2F;使用add方法set.add(1); 3、哈">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-01-06T13:10:19.873Z">
-<meta property="article:modified_time" content="2021-01-06T13:10:19.873Z">
+<meta property="article:published_time" content="2021-01-06T14:13:22.609Z">
+<meta property="article:modified_time" content="2020-03-27T02:07:56.322Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/2021/01/06/hello-world/">
+<link rel="canonical" href="http://example.com/2021/01/06/19%E3%80%81set%E9%9B%86%E5%90%88/">
 
 
 <script id="page-configurations">
@@ -45,7 +45,7 @@
   };
 </script>
 
-  <title>Hello World | Hexo</title>
+  <title> | Hexo</title>
   
 
 
@@ -150,7 +150,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/06/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/06/19%E3%80%81set%E9%9B%86%E5%90%88/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
@@ -163,7 +163,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hello World
+          
         </h1>
 
         <div class="post-meta">
@@ -173,8 +173,15 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-01-06 21:10:19" itemprop="dateCreated datePublished" datetime="2021-01-06T21:10:19+08:00">2021-01-06</time>
+              <time title="创建时间：2021-01-06 22:13:22" itemprop="dateCreated datePublished" datetime="2021-01-06T22:13:22+08:00">2021-01-06</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-27 10:07:56" itemprop="dateModified" datetime="2020-03-27T10:07:56+08:00">2020-03-27</time>
+              </span>
 
           
 
@@ -187,15 +194,19 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <h1 id="19、set集合"><a href="#19、set集合" class="headerlink" title="19、set集合"></a>19、set集合</h1><hr>
+<h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><p>set接口是Collection下的一个子接口，不允许重复，没有索引，不能使用普通for循环遍历</p>
+<h1 id="2、HashSet集合"><a href="#2、HashSet集合" class="headerlink" title="2、HashSet集合"></a>2、HashSet集合</h1><p>实现了set接口，是一个无序集合，底层是哈希表，查询速度快</p>
+<h2 id="2-1、使用HashSet"><a href="#2-1、使用HashSet" class="headerlink" title="2.1、使用HashSet"></a>2.1、使用HashSet</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建对象,多态</span></span><br><span class="line">Set&lt;Integer&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"><span class="comment">//使用add方法</span></span><br><span class="line">set.add(<span class="number">1</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="3、哈希值"><a href="#3、哈希值" class="headerlink" title="3、哈希值"></a>3、哈希值</h1><p>是一个十进制的整数，由系统随机给出，代表对象的逻辑地址</p>
+<p>在object类在有一个获取哈希值的方法</p>
+<h1 id="4、set不允许重复的原理"><a href="#4、set不允许重复的原理" class="headerlink" title="4、set不允许重复的原理"></a>4、set不允许重复的原理</h1><p>会调用hashcode中的equals方法判断哈希值时候已经存在</p>
+<h1 id="5、HashSet存储自定义类型元素"><a href="#5、HashSet存储自定义类型元素" class="headerlink" title="5、HashSet存储自定义类型元素"></a>5、HashSet存储自定义类型元素</h1><p>要先重写hashcode和equals方法，确保哈希值不会重复</p>
+<h1 id="6、LinkedHashSet集合"><a href="#6、LinkedHashSet集合" class="headerlink" title="6、LinkedHashSet集合"></a>6、LinkedHashSet集合</h1><p>特点：底层是哈希表加链表，有序</p>
+<h1 id="7、可变参数"><a href="#7、可变参数" class="headerlink" title="7、可变参数"></a>7、可变参数</h1><p>使用前提：方法参数类型已经确定，但个数还不确定</p>
+<p>格式：修饰符 返回值类型 方法名(数据类型…变量名){}</p>
+<p>原理：底层是数组</p>
+<p>注意：多个参数是可变要放最后，且只能有一个</p>
 
     </div>
 
@@ -210,9 +221,12 @@
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2021/01/06/01%E3%80%81%E5%AE%89%E8%A3%85/" rel="next" title="">
+    <a href="/2021/01/06/18%E3%80%81list%E9%9B%86%E5%90%88/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/06/20%E3%80%81Collections%E5%B7%A5%E5%85%B7%E7%B1%BB/" rel="next" title="">
        <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
@@ -273,7 +287,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#19%E3%80%81set%E9%9B%86%E5%90%88"><span class="nav-number">1.</span> <span class="nav-text">19、set集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E6%A6%82%E8%BF%B0"><span class="nav-number">2.</span> <span class="nav-text">1、概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%E3%80%81HashSet%E9%9B%86%E5%90%88"><span class="nav-number">3.</span> <span class="nav-text">2、HashSet集合</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#2-1%E3%80%81%E4%BD%BF%E7%94%A8HashSet"><span class="nav-number">3.1.</span> <span class="nav-text">2.1、使用HashSet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%E3%80%81%E5%93%88%E5%B8%8C%E5%80%BC"><span class="nav-number">4.</span> <span class="nav-text">3、哈希值</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4%E3%80%81set%E4%B8%8D%E5%85%81%E8%AE%B8%E9%87%8D%E5%A4%8D%E7%9A%84%E5%8E%9F%E7%90%86"><span class="nav-number">5.</span> <span class="nav-text">4、set不允许重复的原理</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5%E3%80%81HashSet%E5%AD%98%E5%82%A8%E8%87%AA%E5%AE%9A%E4%B9%89%E7%B1%BB%E5%9E%8B%E5%85%83%E7%B4%A0"><span class="nav-number">6.</span> <span class="nav-text">5、HashSet存储自定义类型元素</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6%E3%80%81LinkedHashSet%E9%9B%86%E5%90%88"><span class="nav-number">7.</span> <span class="nav-text">6、LinkedHashSet集合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7%E3%80%81%E5%8F%AF%E5%8F%98%E5%8F%82%E6%95%B0"><span class="nav-number">8.</span> <span class="nav-text">7、可变参数</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 

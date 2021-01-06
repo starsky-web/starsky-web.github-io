@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+  </script>
+
+  <meta name="description" content="2、基础知识 1、注释1.1、单行注释使用&#x2F;&#x2F;来写单行注释，&#x2F;&#x2F;到行末都是注释。 1.2、多行注释多行注释分为多行注释和文档注释。 多行注释:&#x2F;*   *&#x2F;通常用于对方法的注释 文档注释:&#x2F;**   *&#x2F;通常用于对类的注释或者文档注释 2、变量与常量作用：用来存储计算机的数据 常量：常量一旦被赋值，无法更改 变量：变量中的值可以随时修改 3、标识符作用：用来给变量和常量命名 结构：只能由字母，数字">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo">
+<meta property="og:url" content="http://example.com/2021/01/06/02%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="2、基础知识 1、注释1.1、单行注释使用&#x2F;&#x2F;来写单行注释，&#x2F;&#x2F;到行末都是注释。 1.2、多行注释多行注释分为多行注释和文档注释。 多行注释:&#x2F;*   *&#x2F;通常用于对方法的注释 文档注释:&#x2F;**   *&#x2F;通常用于对类的注释或者文档注释 2、变量与常量作用：用来存储计算机的数据 常量：常量一旦被赋值，无法更改 变量：变量中的值可以随时修改 3、标识符作用：用来给变量和常量命名 结构：只能由字母，数字">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-01-06T14:13:22.535Z">
+<meta property="article:modified_time" content="2020-03-27T02:03:30.095Z">
+<meta property="article:author" content="John Doe">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="http://example.com/2021/01/06/02%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title> | Hexo</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">Hexo</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/01/06/02%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="John Doe">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-06 22:13:22" itemprop="dateCreated datePublished" datetime="2021-01-06T22:13:22+08:00">2021-01-06</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-03-27 10:03:30" itemprop="dateModified" datetime="2020-03-27T10:03:30+08:00">2020-03-27</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="2、基础知识"><a href="#2、基础知识" class="headerlink" title="2、基础知识"></a>2、基础知识</h1><hr>
+<h1 id="1、注释"><a href="#1、注释" class="headerlink" title="1、注释"></a>1、注释</h1><h2 id="1-1、单行注释"><a href="#1-1、单行注释" class="headerlink" title="1.1、单行注释"></a>1.1、单行注释</h2><p>使用<code>//</code>来写单行注释，//到行末都是注释。</p>
+<h2 id="1-2、多行注释"><a href="#1-2、多行注释" class="headerlink" title="1.2、多行注释"></a>1.2、多行注释</h2><p>多行注释分为多行注释和文档注释。</p>
+<p>多行注释:<code>/*   */</code>通常用于对方法的注释</p>
+<p>文档注释:<code>/**   */</code>通常用于对类的注释或者文档注释</p>
+<h1 id="2、变量与常量"><a href="#2、变量与常量" class="headerlink" title="2、变量与常量"></a>2、变量与常量</h1><p>作用：用来存储计算机的数据</p>
+<p>常量：常量一旦被赋值，无法更改</p>
+<p>变量：变量中的值可以随时修改</p>
+<h1 id="3、标识符"><a href="#3、标识符" class="headerlink" title="3、标识符"></a>3、标识符</h1><p>作用：用来给变量和常量命名</p>
+<p>结构：只能由字母，数字，下划线，$</p>
+<p>注意：不能以数字开头</p>
+<h1 id="4、关键字"><a href="#4、关键字" class="headerlink" title="4、关键字"></a>4、关键字</h1><p>定义：java中定义了某些单词具有特定的含义</p>
+<h1 id="5、数据类型"><a href="#5、数据类型" class="headerlink" title="5、数据类型"></a>5、数据类型</h1><p>一个字节=8位</p>
+<p>基本数据类型(8个)：</p>
+<p>​    整数数据类型(4个)：</p>
+<p>​        byte:一个字节，范围-128~127</p>
+<p>​        short：两个字节，范围-2^15~2^15-1</p>
+<p>​        int:四个字节，范围-2^31~2^31-1</p>
+<p>​        long:八个字节，范围-2^63~2^63-1</p>
+<p>​    浮点数数据类型(2个)：</p>
+<p>​        float：4个字节，单精度浮点数(给float赋值，在值后加f)</p>
+<p>​        double：8个字节，双精度浮点数</p>
+<p>​    布尔型（1个）：</p>
+<p>​        Boolean：1个字节，只能取true或false</p>
+<p>​    字符型（1个）：</p>
+<p>​        char：2个字节，存储单个字母</p>
+<p>引用数据类型：</p>
+<p>​    字符串：String 用” “表示</p>
+<h1 id="6、转义字符"><a href="#6、转义字符" class="headerlink" title="6、转义字符"></a>6、转义字符</h1><p>如果想在字符串中输入特殊符号或者代表特殊含义，需要转义字符</p>
+<p>回车：\r</p>
+<p>换行：\n</p>
+<p>\ :\</p>
+<p>‘ :’</p>
+<p>“ : “</p>
+<h1 id="7、数据类型的转换"><a href="#7、数据类型的转换" class="headerlink" title="7、数据类型的转换"></a>7、数据类型的转换</h1><p>数据从大到小的排序：整数类型&lt;浮点型</p>
+<p>​        数据类型占比较小的，排序也较低</p>
+<p>​        byte&lt;short&lt;int&lt;long&lt;float&lt;double</p>
+<p>数据的强制类型转换：</p>
+<p>​    当把高级别（占存储空间大的）的数据类型赋值给低级别的数据类型是，必须进行强制类型转换。语法如下</p>
+<p>(数据类型)(表达式)</p>
+<p>类型是要转换的目标类型，表达式是要转换的目标数据，它可以是任何基本数据类型的算术运算表达式。例如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">long num&#x3D;900L;</span><br><span class="line">short snum&#x3D;(short)num;</span><br></pre></td></tr></table></figure>
+<p>强制类型转换时需要注意数据的完整性问题，当把高级的数据类型强制转换为低级的数据类型时，如果数字超出数据类型的取值范围，数值将被截取，导致数据丢失，不完整。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">short snum&#x3D;516;</span><br><span class="line">byte bnum&#x3D;(byte)snum;</span><br></pre></td></tr></table></figure>
+<h1 id="8、运算符"><a href="#8、运算符" class="headerlink" title="8、运算符"></a>8、运算符</h1><p>赋值运算符：=</p>
+<p>算数运算符：+   -   *   /  ++   %</p>
+<p>​            ++为自增1，前置为先自增再运算，后置为先运算在自增</p>
+<p>​            –同理</p>
+<p>关系运算符：&gt;   &gt;=   &lt;   &lt;=    ==   !=</p>
+<p>​                结果为布尔型</p>
+<h1 id="9、表达式"><a href="#9、表达式" class="headerlink" title="9、表达式"></a>9、表达式</h1><p>​    有操作数和运算符组成的有结果的式子</p>
+<h1 id="10、获取用户键盘输入"><a href="#10、获取用户键盘输入" class="headerlink" title="10、获取用户键盘输入"></a>10、获取用户键盘输入</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Scanner scanner &#x3D; new Scanner(System.in);</span><br><span class="line">	int age &#x3D; scanner.nextInt();  &#x2F;&#x2F;获取用户键盘输入的整数</span><br><span class="line">	double salary &#x3D; scanner.nextDouble();  &#x2F;&#x2F;获取用户输入的浮点数</span><br><span class="line">	String message &#x3D; scanner.next();  &#x2F;&#x2F;获取用户输入的一句话</span><br></pre></td></tr></table></figure>
+<p>第一行创建Scanner类的对象，后面即可调用方法获取用户键盘输入。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2021/01/06/01%E3%80%81%E5%AE%89%E8%A3%85/" rel="prev" title="">
+      <i class="fa fa-chevron-left"></i> 
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/2021/01/06/03%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6/" rel="next" title="">
+       <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#2%E3%80%81%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86"><span class="nav-number">1.</span> <span class="nav-text">2、基础知识</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1%E3%80%81%E6%B3%A8%E9%87%8A"><span class="nav-number">2.</span> <span class="nav-text">1、注释</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-1%E3%80%81%E5%8D%95%E8%A1%8C%E6%B3%A8%E9%87%8A"><span class="nav-number">2.1.</span> <span class="nav-text">1.1、单行注释</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-2%E3%80%81%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A"><span class="nav-number">2.2.</span> <span class="nav-text">1.2、多行注释</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#2%E3%80%81%E5%8F%98%E9%87%8F%E4%B8%8E%E5%B8%B8%E9%87%8F"><span class="nav-number">3.</span> <span class="nav-text">2、变量与常量</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#3%E3%80%81%E6%A0%87%E8%AF%86%E7%AC%A6"><span class="nav-number">4.</span> <span class="nav-text">3、标识符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#4%E3%80%81%E5%85%B3%E9%94%AE%E5%AD%97"><span class="nav-number">5.</span> <span class="nav-text">4、关键字</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#5%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B"><span class="nav-number">6.</span> <span class="nav-text">5、数据类型</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#6%E3%80%81%E8%BD%AC%E4%B9%89%E5%AD%97%E7%AC%A6"><span class="nav-number">7.</span> <span class="nav-text">6、转义字符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#7%E3%80%81%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BD%AC%E6%8D%A2"><span class="nav-number">8.</span> <span class="nav-text">7、数据类型的转换</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#8%E3%80%81%E8%BF%90%E7%AE%97%E7%AC%A6"><span class="nav-number">9.</span> <span class="nav-text">8、运算符</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#9%E3%80%81%E8%A1%A8%E8%BE%BE%E5%BC%8F"><span class="nav-number">10.</span> <span class="nav-text">9、表达式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#10%E3%80%81%E8%8E%B7%E5%8F%96%E7%94%A8%E6%88%B7%E9%94%AE%E7%9B%98%E8%BE%93%E5%85%A5"><span class="nav-number">11.</span> <span class="nav-text">10、获取用户键盘输入</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">John Doe</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">47</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+  </nav>
+</div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">John Doe</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a> 强力驱动
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
