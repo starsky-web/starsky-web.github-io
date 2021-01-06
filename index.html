@@ -71,15 +71,25 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-README" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-JDBC" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/01/06/README/" class="article-date">
-  <time class="dt-published" datetime="2021-01-06T14:13:22.732Z" itemprop="datePublished">2021-01-06</time>
+    <a href="/2021/01/06/JDBC/" class="article-date">
+  <time class="dt-published" datetime="2021-01-06T14:38:39.000Z" itemprop="datePublished">2021-01-06</time>
 </a>
     
   </div>
   <div class="article-inner">
     
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/01/06/JDBC/">JDBC</a>
+    </h1>
+  
+
+      </header>
     
     <div class="e-content article-entry" itemprop="articleBody">
       
@@ -87,7 +97,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/06/README/" data-id="ckjlic6iq000048u8bm9aeeuq" data-title="" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2021/01/06/JDBC/" data-id="ckjlj313j0000p8u863hieyju" data-title="JDBC" class="article-share-link">分享</a>
       
       
       
@@ -99,575 +109,42 @@
 
 
   
-    <article id="post-45、JDBC" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2021/01/06/45%E3%80%81JDBC/" class="article-date">
-  <time class="dt-published" datetime="2021-01-06T14:13:22.728Z" itemprop="datePublished">2021-01-06</time>
+    <a href="/2021/01/06/hello-world/" class="article-date">
+  <time class="dt-published" datetime="2021-01-06T13:10:19.873Z" itemprop="datePublished">2021-01-06</time>
 </a>
     
   </div>
   <div class="article-inner">
     
     
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2021/01/06/hello-world/">Hello World</a>
+    </h1>
+  
+
+      </header>
+    
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <h1 id="45、JDBC"><a href="#45、JDBC" class="headerlink" title="45、JDBC"></a>45、JDBC</h1><hr>
-<h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><p>java程序操作数据库的方法</p>
-<h1 id="2、使用步骤"><a href="#2、使用步骤" class="headerlink" title="2、使用步骤"></a>2、使用步骤</h1><p><strong>1、导入驱动jar包</strong></p>
-<ol>
-<li>复制包到lib目录下</li>
-<li>右键，add  as  library加入项目</li>
-</ol>
-<p><strong>2、注册驱动</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Class.forname(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br><span class="line"><span class="comment">//驱动文件的路径</span></span><br></pre></td></tr></table></figure>
-<p><strong>3、获取连接对象</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Connection conn = DriverManager.getConnection(<span class="string">&quot;jdbc:mysql://主机名:端口号/库名&quot;</span>, <span class="string">&quot;用户名&quot;</span>, <span class="string">&quot;密码&quot;</span>);</span><br><span class="line"></span><br><span class="line">Connection conn = DriverManager.getConnection(<span class="string">&quot;jdbc:mysql:///库名&quot;</span>, <span class="string">&quot;用户名&quot;</span>, <span class="string">&quot;密码&quot;</span>);</span><br><span class="line"><span class="comment">//本地且为3306端口可省略部分内容</span></span><br></pre></td></tr></table></figure>
-<p><strong>4、定义sql语句</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">String sql = <span class="string">&quot;update 出版社2 set 邮政编码 = 100012 where 出版社ID = 1&quot;</span>;</span><br></pre></td></tr></table></figure>
-<p>使用字符串写一条要执行的sql命令</p>
-<p><strong>5、获取执行sql的对象  Statement</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Statement stmt = conn.createStatement();</span><br></pre></td></tr></table></figure>
-<p><strong>6、执行</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> count = stmt.executeUpdate(sql);</span><br></pre></td></tr></table></figure>
-<p><strong>7、处理结果</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">System.out.println(count);</span><br></pre></td></tr></table></figure>
-<p><strong>8、释放资源</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">stmt.close();</span><br><span class="line">conn.close();</span><br></pre></td></tr></table></figure>
-<h1 id="3、各类解析"><a href="#3、各类解析" class="headerlink" title="3、各类解析"></a>3、各类解析</h1><h2 id="3-1、DriverManager"><a href="#3-1、DriverManager" class="headerlink" title="3.1、DriverManager"></a>3.1、DriverManager</h2><p>驱动管理对象</p>
-<p><strong>功能</strong></p>
-<p>1、注册驱动</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> <span class="keyword">void</span> <span class="title">registerDriver</span><span class="params">(Driver driver)</span>；<span class="comment">//注册与给定的驱动程序</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">写代码使用：Class.<span class="title">forName</span><span class="params">(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>)</span></span></span><br></pre></td></tr></table></figure>
-
-
-<p>2、获取数据库连接</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">static</span> Connection <span class="title">getConnection</span><span class="params">(String url,String user,String password)</span></span>;</span><br><span class="line"><span class="comment">//获取连接对象</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="3-2、Connection"><a href="#3-2、Connection" class="headerlink" title="3.2、Connection"></a>3.2、Connection</h2><p>数据库连接对象</p>
-<p><strong>功能</strong></p>
-<p>1、获取执行sql的对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">Statement <span class="title">createStatement</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function">preparedStatement <span class="title">prepareStatement</span><span class="params">(String sql)</span></span></span><br></pre></td></tr></table></figure>
-<p>2、管理事务</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//开启事务</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setAutoCommit</span><span class="params">(<span class="keyword">boolean</span> autoCommit)</span>设置参数为<span class="keyword">false</span>即可开启</span></span><br><span class="line"><span class="function"><span class="comment">//提交事务</span></span></span><br><span class="line"><span class="function"><span class="title">commit</span><span class="params">()</span></span></span><br><span class="line"><span class="function"><span class="comment">//回滚事务</span></span></span><br><span class="line"><span class="function"><span class="title">rollback</span><span class="params">()</span></span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="3-3、Statement"><a href="#3-3、Statement" class="headerlink" title="3.3、Statement"></a>3.3、Statement</h2><p>执行sql的对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">execute</span><span class="params">(String sql)</span></span>;<span class="comment">//可执行任意sql，了解即可，不常用</span></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">executeUpdate</span><span class="params">(String sql)</span></span>;<span class="comment">//执行DML语句(增删改)，DDl语句(创建，删除表和库)；返回值是影响的行数</span></span><br><span class="line"><span class="function">ResultSet <span class="title">executeQuery</span><span class="params">(String sql)</span></span>;<span class="comment">//执行DQL(查询)</span></span><br></pre></td></tr></table></figure>
-
-
-<h2 id="3-4、ResultSet"><a href="#3-4、ResultSet" class="headerlink" title="3.4、ResultSet"></a>3.4、ResultSet</h2><p>结果集对象封装查询结果</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">next();<span class="comment">//游标下移一行</span></span><br><span class="line">getXXX();<span class="comment">//获取数据，XXX代表数据类型</span></span><br><span class="line">	参数：</span><br><span class="line">		<span class="keyword">int</span>:代表列的编号，从<span class="number">1</span>开始</span><br><span class="line">		String:代表列的名称,</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<p><strong>注意</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">使用步骤</span><br><span class="line">	1、游标向下移一行</span><br><span class="line">	2、判断是否有数据(用next的返回值判断)</span><br><span class="line">	3、获取数据</span><br></pre></td></tr></table></figure>
-
-
-<h2 id="3-5、PreparedStatement"><a href="#3-5、PreparedStatement" class="headerlink" title="3.5、PreparedStatement"></a>3.5、PreparedStatement</h2><p>执行sql的对象，功能更强大</p>
-<p><strong>sql注入问题</strong></p>
-<p>在拼接sql时，有一些sql的特殊关键字参与字符串的拼接，会造成安全性问题</p>
-<p>解决方式是使用PreparedStatement对象</p>
-<p><strong>预编译的SQL</strong>：参数使用?作为占位符</p>
-<p><strong>步骤</strong></p>
-<p>定义SQL时sql的参数使用?作为占位符</p>
-<p>获取执行对象时传入sql</p>
-<p>然后给?赋值</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用SetXXX(参数<span class="number">1</span>，参数<span class="number">2</span>)给问号赋值</span><br><span class="line"><span class="number">1</span>是?的位置，<span class="number">2</span>是?的值</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="4、CRUD"><a href="#4、CRUD" class="headerlink" title="4、CRUD"></a>4、CRUD</h1><h1 id="5、事务"><a href="#5、事务" class="headerlink" title="5、事务"></a>5、事务</h1><p>使用Connection对象来管理事务</p>
-<h1 id="6、连接池"><a href="#6、连接池" class="headerlink" title="6、连接池"></a>6、连接池</h1><p>概念：存放数据库连接的容器</p>
-<p>实现：</p>
-<p>标准接口：DataSource</p>
-<p>1、方法：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">获取连接getConnection()</span><br><span class="line">归还连接：如果连接对象是从连接池中获得的，那么Connection.close方法不会关闭连接，只会归还连接</span><br></pre></td></tr></table></figure>
-<p>2、由数据库厂商实现</p>
-<p>C3P0：数据库连接实现技术，较老</p>
-<p>Druld：数据库连接池技术，较新，由阿里提供</p>
-<h2 id="6-1、C3P0"><a href="#6-1、C3P0" class="headerlink" title="6.1、C3P0"></a>6.1、C3P0</h2><p>步骤</p>
-<ol>
-<li>导入jar包：两个</li>
-<li>定义配置文件</li>
-<li>创建核心对象 数据池连接对象 </li>
-<li>获取连接</li>
-</ol>
-<h2 id="6-2、Druld"><a href="#6-2、Druld" class="headerlink" title="6.2、Druld"></a>6.2、Druld</h2><p>步骤</p>
-<ol>
-<li>导入jar包</li>
-<li>定义配置文件</li>
-<li>获取数据库连接池对象，通过工厂类获取</li>
-<li>获取连接</li>
-</ol>
-<h1 id="7、Template"><a href="#7、Template" class="headerlink" title="7、Template"></a>7、Template</h1><p>Spring框架提供的</p>
-<p>使用</p>
-<ol>
-<li>导入jar包</li>
-<li>创建JDBCTemplate对象，依赖于数据源DataSource</li>
-<li>调用方法</li>
-</ol>
+        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
+<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/06/45%E3%80%81JDBC/" data-id="ckjlic6jx001948u8bb5x9pw0" data-title="" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-44、注解" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/06/44%E3%80%81%E6%B3%A8%E8%A7%A3/" class="article-date">
-  <time class="dt-published" datetime="2021-01-06T14:13:22.724Z" itemprop="datePublished">2021-01-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="44、注解"><a href="#44、注解" class="headerlink" title="44、注解"></a>44、注解</h1><hr>
-<h1 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h1><h2 id="1-1、概念"><a href="#1-1、概念" class="headerlink" title="1.1、概念"></a>1.1、概念</h2><p>说明程序的，给计算机看的</p>
-<h2 id="1-2、定义"><a href="#1-2、定义" class="headerlink" title="1.2、定义"></a>1.2、定义</h2><p>注解也叫元数据，一种代码级别的说明，与类、接口、枚举是同一个层次，可以声明在包、类、字段、方法、局部变量、方法参数等的前面，用来对这些元素进行说明、注释</p>
-<h2 id="1-3、分类"><a href="#1-3、分类" class="headerlink" title="1.3、分类"></a>1.3、分类</h2><ol>
-<li>编写文档：通过代码里标识的注解声明文档</li>
-<li>代码分析：通过代码里标识的注解对代码进行分析</li>
-<li>编译检查：通过代码里标识的注解让编译器能实现基本的编译检查</li>
-</ol>
-<h1 id="2、预定义的注解"><a href="#2、预定义的注解" class="headerlink" title="2、预定义的注解"></a>2、预定义的注解</h1><h2 id="2-1、-Override"><a href="#2-1、-Override" class="headerlink" title="2.1、@Override"></a>2.1、@Override</h2><p>检测是否继承自父类</p>
-<h2 id="2-2、-Deprecated"><a href="#2-2、-Deprecated" class="headerlink" title="2.2、@Deprecated"></a>2.2、@Deprecated</h2><p>表示标注的内容以过时</p>
-<h2 id="2-3、-SuppressWarnings"><a href="#2-3、-SuppressWarnings" class="headerlink" title="2.3、@SuppressWarnings"></a>2.3、@SuppressWarnings</h2><p>压制警告，一般传递参数<code>all</code></p>
-<h1 id="3、自定义注解"><a href="#3、自定义注解" class="headerlink" title="3、自定义注解"></a>3、自定义注解</h1><p><strong>格式</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">元注解</span><br><span class="line"><span class="keyword">public</span> <span class="meta">@interface</span> 注解名称&#123;</span><br><span class="line">    属性列表;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><strong>本质</strong></p>
-<p>本质上是一个接口</p>
-<p><strong>属性（可以定义的内容）</strong></p>
-<p>接口中可以定义成员方法</p>
-<p>​    <strong>要求</strong></p>
-<p>​    属性的返回值类型</p>
-<ol>
-<li>基本数据类型</li>
-<li>String</li>
-<li>枚举</li>
-<li>注解</li>
-<li>以上类型的数组</li>
-</ol>
-<p>​    定义了属性，在使用时要给属性赋值</p>
-<ol>
-<li>如果定义时使用了default定义了默认值就可以不赋值</li>
-<li>如果只有一个属性要赋值，且名称为value，则使用时可以省略value，直接写值</li>
-<li>数组赋值时，值使用{}包裹，如果数组只有一个值，则{}省略</li>
-</ol>
-<h2 id="3-2、元注解"><a href="#3-2、元注解" class="headerlink" title="3.2、元注解"></a>3.2、元注解</h2><p>用于描述注解的注解</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Target</span>:描述作用位置</span><br><span class="line">    ElementType取值</span><br><span class="line">    	TYPE：可以作用于类</span><br><span class="line">    	METHOD：可以作用于方法</span><br><span class="line">    	FIELD：作用于成员变量</span><br><span class="line"><span class="meta">@Retention</span>:描述注解被保留的阶段</span><br><span class="line">    RetentionPolicy.RUNTIME：保留到运行阶段，自定义一般都是使用此值</span><br><span class="line"><span class="meta">@Document</span>:描述注解是否被抽取到api文档中</span><br><span class="line"><span class="meta">@Inherited</span>:描述注解是否被子类继承</span><br></pre></td></tr></table></figure>
-<h1 id="4、解析注解"><a href="#4、解析注解" class="headerlink" title="4、解析注解"></a>4、解析注解</h1><p> 1、获取注解定义位置的对象，</p>
-<p>2、获取指定的注解</p>
-<p>3、调用注解中的抽象方法获取配置的属性值</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/06/44%E3%80%81%E6%B3%A8%E8%A7%A3/" data-id="ckjlic6jx001848u8b5uubp43" data-title="" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-43、反射" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/06/43%E3%80%81%E5%8F%8D%E5%B0%84/" class="article-date">
-  <time class="dt-published" datetime="2021-01-06T14:13:22.721Z" itemprop="datePublished">2021-01-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="43、反射"><a href="#43、反射" class="headerlink" title="43、反射"></a>43、反射</h1><hr>
-<h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><p>框架设计的灵魂</p>
-<p>将类的各个组成部分封装为其他对象，这就是反射机制</p>
-<p>可以在程序运行过程中操作这些对象</p>
-<p>可以解耦，提高程序可拓展性</p>
-<h1 id="2、获取Class对象的三种方式"><a href="#2、获取Class对象的三种方式" class="headerlink" title="2、获取Class对象的三种方式"></a>2、获取Class对象的三种方式</h1><h2 id="1、源代码阶段"><a href="#1、源代码阶段" class="headerlink" title="1、源代码阶段"></a>1、源代码阶段</h2><p>Class.forname(‘全类名’)，将字节码文件加载进内存，返回class对象</p>
-<p>多用于配置文件</p>
-<h2 id="2、类对象阶段"><a href="#2、类对象阶段" class="headerlink" title="2、类对象阶段"></a>2、类对象阶段</h2><p>类名.class</p>
-<p>多用于参数传递</p>
-<h2 id="3、运行时阶段"><a href="#3、运行时阶段" class="headerlink" title="3、运行时阶段"></a>3、运行时阶段</h2><p>对象.getClass();</p>
-<p>多用于对象的获取字节码</p>
-<h1 id="3、class对象的功能"><a href="#3、class对象的功能" class="headerlink" title="3、class对象的功能"></a>3、class对象的功能</h1><p><strong>获取的功能</strong></p>
-<h2 id="获取成员变量们"><a href="#获取成员变量们" class="headerlink" title="获取成员变量们"></a>获取成员变量们</h2><p>getFields(),获取所有public修饰的成员变量</p>
-<p>getField(String name)</p>
-<p>getDeclareFields(String name)，获取所有的成员变量</p>
-<h2 id="获取成员方法们"><a href="#获取成员方法们" class="headerlink" title="获取成员方法们"></a>获取成员方法们</h2><p>getMethods()</p>
-<p>getMethod()</p>
-<p>getDeclareMethods()</p>
-<p>getDeclareMethod()</p>
-<h2 id="获取构造方法们"><a href="#获取构造方法们" class="headerlink" title="获取构造方法们"></a>获取构造方法们</h2><p>getConstructors(),获取所有的构造方法</p>
-<p>getConstructor(),获取一个</p>
-<p>getDeclareConstructors</p>
-<p>getDeclareConstructor</p>
-<h2 id="获取类名"><a href="#获取类名" class="headerlink" title="获取类名"></a>获取类名</h2><p>getName</p>
-<p><strong>忽略安全检查的代码</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">变量名.setAccessible(<span class="keyword">true</span>)</span><br><span class="line">    <span class="comment">//暴力反射</span></span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/06/43%E3%80%81%E5%8F%8D%E5%B0%84/" data-id="ckjlic6jw001748u8e5rq9e4z" data-title="" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-42、Junit单元测试" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/06/42%E3%80%81Junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" class="article-date">
-  <time class="dt-published" datetime="2021-01-06T14:13:22.717Z" itemprop="datePublished">2021-01-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="42、Junit单元测试"><a href="#42、Junit单元测试" class="headerlink" title="42、Junit单元测试"></a>42、Junit单元测试</h1><hr>
-<h1 id="1、测试分类"><a href="#1、测试分类" class="headerlink" title="1、测试分类"></a>1、测试分类</h1><h2 id="1-1、黑盒测试"><a href="#1-1、黑盒测试" class="headerlink" title="1.1、黑盒测试"></a>1.1、黑盒测试</h2><p>输入一个值，看输出的值是否符合预期，不需要写代码</p>
-<h2 id="1-2、白盒测试"><a href="#1-2、白盒测试" class="headerlink" title="1.2、白盒测试"></a>1.2、白盒测试</h2><p>关注程序运行过程，需要写一些代码</p>
-<h1 id="2、Junit使用"><a href="#2、Junit使用" class="headerlink" title="2、Junit使用"></a>2、Junit使用</h1><p>Junit属于白盒测试</p>
-<p><strong>步骤</strong></p>
-<ol>
-<li>定义一个测试类（测试用例）建议类名为被测试类名Test</li>
-<li>包名：xxx.xxx.xxx.test</li>
-<li>定义测试方法，可以独立运行。建议方法名为test测试方法名，建议返回值使用void，参数列表建议空参</li>
-<li>给方法加Test注解</li>
-<li>判定结果：红色失败，绿色成功</li>
-</ol>
-<p>需要导入Junit依赖</p>
-<h1 id="3、断言"><a href="#3、断言" class="headerlink" title="3、断言"></a>3、断言</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Assert.assertEquals(<span class="number">3</span>,result);</span><br></pre></td></tr></table></figure>
-<p>传期望的值和运行得到的值</p>
-<h1 id="4、before、after注解"><a href="#4、before、after注解" class="headerlink" title="4、before、after注解"></a>4、before、after注解</h1><p>before为初始化方法，用于资源申请，所有测试方法在执行之前都会先执行该方法</p>
-<p>after释放资源方法，在所有方法执行完后会自动执行</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/06/42%E3%80%81Junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/" data-id="ckjlic6jw001648u80dlbayv2" data-title="" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-41、方法引用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/06/41%E3%80%81%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/" class="article-date">
-  <time class="dt-published" datetime="2021-01-06T14:13:22.714Z" itemprop="datePublished">2021-01-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="41、方法引用"><a href="#41、方法引用" class="headerlink" title="41、方法引用"></a>41、方法引用</h1><hr>
-<h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><p>对lambda表达式的简化</p>
-<p>双冒号<code>::</code>为引用运算符，而它所在的表达式称为<strong>方法引用</strong>，如果lambda表达式要表达的函数式接口已经存在，要使用的方法也已经存在，这可以用过方法引用来优化lambda的书写</p>
-<h1 id="2、通过对象名引用成员方法"><a href="#2、通过对象名引用成员方法" class="headerlink" title="2、通过对象名引用成员方法"></a>2、通过对象名引用成员方法</h1><p><strong>前提</strong></p>
-<ol>
-<li>对象名已经存在，成员方法也已经存在</li>
-</ol>
-<p><strong>示例</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">MethodRerObject obj = <span class="keyword">new</span> MethodRerObject();</span><br><span class="line">printString(obj::printUpperCaseString);</span><br><span class="line"><span class="comment">//创建了一个对象，然后通过方法引用调用其中的方法</span></span><br></pre></td></tr></table></figure>
-<h1 id="3、通过类名引用静态成员方法"><a href="#3、通过类名引用静态成员方法" class="headerlink" title="3、通过类名引用静态成员方法"></a>3、通过类名引用静态成员方法</h1><p><strong>前提</strong></p>
-<p>类已经存在，静态成员已经存在</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> num2 = Method(-<span class="number">10</span>, Math::abs);</span><br><span class="line"><span class="comment">//第二个参数为方法引用</span></span><br></pre></td></tr></table></figure>
-<h1 id="4、使用super引用父类"><a href="#4、使用super引用父类" class="headerlink" title="4、使用super引用父类"></a>4、使用super引用父类</h1><p>因为有继承，所以可以直接使用super调用父类成员方法</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">method(()-&gt;&#123;</span><br><span class="line">            <span class="keyword">super</span>.sayHello();</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-<h1 id="5、引用构造器"><a href="#5、引用构造器" class="headerlink" title="5、引用构造器"></a>5、引用构造器</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo4</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printName</span><span class="params">(String name,PersonBuilder pb)</span></span>&#123;</span><br><span class="line">        Person person = pb.BuilderPerson(name);</span><br><span class="line">        System.out.println(person.getName());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        printName(<span class="string">&quot;迪丽热巴&quot;</span>,(String name)-&gt;&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Person(name);</span><br><span class="line">        &#125;);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        方法引用</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        printName(<span class="string">&quot;古力娜扎&quot;</span>,Person::<span class="keyword">new</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-<h1 id="6、数组的构造器引用"><a href="#6、数组的构造器引用" class="headerlink" title="6、数组的构造器引用"></a>6、数组的构造器引用</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Demo5</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span>[] createArray(<span class="keyword">int</span> length,ArrayBuilder ab)&#123;</span><br><span class="line">        <span class="keyword">return</span> ab.builderArray(length);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] arr1 = createArray(<span class="number">10</span>, (len) -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> <span class="keyword">int</span>[len];</span><br><span class="line"></span><br><span class="line">        &#125;);</span><br><span class="line">        System.out.println(arr1.length);</span><br><span class="line"></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 方法引用</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">int</span>[] arr2 = createArray(<span class="number">10</span>, <span class="keyword">int</span>[]::<span class="keyword">new</span>);</span><br><span class="line">        System.out.println(Arrays.toString(arr2));</span><br><span class="line">        System.out.println(arr2.length);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/06/41%E3%80%81%E6%96%B9%E6%B3%95%E5%BC%95%E7%94%A8/" data-id="ckjlic6jv001548u8ceng9s7d" data-title="" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-40、Stream流式编程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/06/40%E3%80%81Stream%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2021-01-06T14:13:22.710Z" itemprop="datePublished">2021-01-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="40、Stream流"><a href="#40、Stream流" class="headerlink" title="40、Stream流"></a>40、Stream流</h1><hr>
-<h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><p>类似于流水线，流的数据源可以是集合数组等</p>
-<p><strong>有两个特征:</strong></p>
-<ol>
-<li>Pipelining：中间的操作都返回流对象本身</li>
-<li>内部迭代：流可以直接调迭代方法(foreach)</li>
-</ol>
-<h1 id="2、获取Stream流的两种方式"><a href="#2、获取Stream流的两种方式" class="headerlink" title="2、获取Stream流的两种方式"></a>2、获取Stream流的两种方式</h1><ol>
-<li>所有的Collection集合都可以通过stream默认方法获取流</li>
-<li>Stream接口的静态方法of可以获取数组对应的流</li>
-</ol>
-<h1 id="3、stream流中的常用方法"><a href="#3、stream流中的常用方法" class="headerlink" title="3、stream流中的常用方法"></a>3、stream流中的常用方法</h1><h2 id="3-1、forEach方法"><a href="#3-1、forEach方法" class="headerlink" title="3.1、forEach方法"></a>3.1、forEach方法</h2><p>使用forEach方法可以遍历流中的数据</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取Stream流</span></span><br><span class="line">        Stream&lt;String&gt; stream = Stream.of(<span class="string">&quot;张三&quot;</span>, <span class="string">&quot;李四&quot;</span>, <span class="string">&quot;王五&quot;</span>, <span class="string">&quot;赵六&quot;</span>, <span class="string">&quot;田七&quot;</span>);</span><br><span class="line">        <span class="comment">//使用forEach</span></span><br><span class="line">        stream.forEach((String name)-&gt;&#123;</span><br><span class="line">            System.out.println(name);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="3-2、filter方法"><a href="#3-2、filter方法" class="headerlink" title="3.2、filter方法"></a>3.2、filter方法</h2><p>filter方法可以对数据进行过滤</p>
-<p>参数predicate是一个函数式接口</p>
-<p>Stream流只能使用一次</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建一个Stream流</span></span><br><span class="line">        Stream&lt;String&gt; stream = Stream.of(<span class="string">&quot;张三丰&quot;</span>, <span class="string">&quot;张翠山&quot;</span>, <span class="string">&quot;赵敏&quot;</span>, <span class="string">&quot;周芷若&quot;</span>, <span class="string">&quot;张无忌&quot;</span>);</span><br><span class="line">        Stream&lt;String&gt; stream2 = stream.filter((String name)-&gt;&#123;<span class="keyword">return</span> name.startsWith(<span class="string">&quot;张&quot;</span>);&#125;);</span><br><span class="line">        stream2.forEach((name)-&gt;&#123;</span><br><span class="line">            System.out.println(name);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="3-3、map方法"><a href="#3-3、map方法" class="headerlink" title="3.3、map方法"></a>3.3、map方法</h2><p>将流中的元素映射到另一流</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Stream&lt;String&gt; stream = Stream.of(<span class="string">&quot;1&quot;</span>, <span class="string">&quot;2&quot;</span>, <span class="string">&quot;3&quot;</span>, <span class="string">&quot;4&quot;</span>);</span><br><span class="line">        <span class="comment">//使用map方法,映射为Integer类型</span></span><br><span class="line">        Stream&lt;Integer&gt; stream2 = stream.map((String str) -&gt; &#123;</span><br><span class="line">            <span class="keyword">return</span> Integer.parseInt(str);</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
-<h2 id="3-4、count方法"><a href="#3-4、count方法" class="headerlink" title="3.4、count方法"></a>3.4、count方法</h2><p>终结方法，统计元素个数，返回long值</p>
-<h2 id="3-5、其他方法"><a href="#3-5、其他方法" class="headerlink" title="3.5、其他方法"></a>3.5、其他方法</h2><p>去掉前几个元素</p>
-<p>limit方法，参数是long值，如果集合长度大于参数则进行截取</p>
-<p>返回一个新的流</p>
-<p>跳过前几个</p>
-<p>skip方法</p>
-<p>返回新流，参数是long值</p>
-<p>组合方法，静态方法concat</p>
-<p>组合两个流</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/06/40%E3%80%81Stream%E6%B5%81%E5%BC%8F%E7%BC%96%E7%A8%8B/" data-id="ckjlic6jv001448u84c06ft0y" data-title="" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-39、常用函数式接口" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/06/39%E3%80%81%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/" class="article-date">
-  <time class="dt-published" datetime="2021-01-06T14:13:22.706Z" itemprop="datePublished">2021-01-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="39、常用函数式接口"><a href="#39、常用函数式接口" class="headerlink" title="39、常用函数式接口"></a>39、常用函数式接口</h1><hr>
-<h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><p>有且只有一个抽象方法的接口</p>
-<p>可以避免性能浪费</p>
-<p>一般作为方法的参数和返回值使用</p>
-<p>lambda表达式有延迟加载的特性</p>
-<p>例如使用lambda表达式作为参数传递，只有满足条件才会调用方法，如果条件不满足，接口中的方法不会执行</p>
-<h1 id="2、Consumer接口"><a href="#2、Consumer接口" class="headerlink" title="2、Consumer接口"></a>2、Consumer接口</h1><p>该接口是一个消费性接口，泛型指定什么类型就可以使用接口内的accept方法使用什么类型的数据</p>
-<h2 id="2-1、andThen方法"><a href="#2-1、andThen方法" class="headerlink" title="2.1、andThen方法"></a>2.1、andThen方法</h2><p>作用：需要两个Consumer接口，可以把两个Consumer接口组合到一起</p>
-<p>连接两个Consumer接口，谁在前面谁先消费</p>
-<h1 id="3、Function接口"><a href="#3、Function接口" class="headerlink" title="3、Function接口"></a>3、Function接口</h1><p>根据一个类型的数据得到另一个类型的数据</p>
-<p>有两个泛型，主要使用接口中的apply方法</p>
-<p>例如传递一个字符串类型的整数，泛型用String和Integer，可以将那个整数转为Integer类型</p>
-<h2 id="3-1、andThen方法"><a href="#3-1、andThen方法" class="headerlink" title="3.1、andThen方法"></a>3.1、andThen方法</h2><p>同样为组合，可以执行两次转换</p>
-<h1 id="4、Predicate接口"><a href="#4、Predicate接口" class="headerlink" title="4、Predicate接口"></a>4、Predicate接口</h1><p>用于对某种数据类型进行判断，得到一个布尔值结果</p>
-<p>使用test方法</p>
-<p>例如判断字符串的长度</p>
-<h2 id="4-1、运算符"><a href="#4-1、运算符" class="headerlink" title="4.1、运算符"></a>4.1、运算符</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">与运算符，连接多个Predicate</span><br><span class="line">或运算符，or</span><br><span class="line">取反 negate</span><br></pre></td></tr></table></figure>
-<h1 id="5、Supplier接口"><a href="#5、Supplier接口" class="headerlink" title="5、Supplier接口"></a>5、Supplier接口</h1><p>常用的函数式接口，被称之为生产器接口</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/06/39%E3%80%81%E5%B8%B8%E7%94%A8%E5%87%BD%E6%95%B0%E5%BC%8F%E6%8E%A5%E5%8F%A3/" data-id="ckjlic6ju001348u83xubbp96" data-title="" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-38、网络编程" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/06/38%E3%80%81%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" class="article-date">
-  <time class="dt-published" datetime="2021-01-06T14:13:22.694Z" itemprop="datePublished">2021-01-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="38、网络编程"><a href="#38、网络编程" class="headerlink" title="38、网络编程"></a>38、网络编程</h1><hr>
-<p>使用Socket类下的方法进行服务端与用户端的设置</p>
-<h1 id="1、客户端"><a href="#1、客户端" class="headerlink" title="1、客户端"></a>1、客户端</h1><p>TCP通信的客户端，向服务器发送链接请求，给服务器发送数据</p>
-<p><strong>关键名词</strong></p>
-<p>Socket类：实现了客户端的套接字（两台机器的端点）</p>
-<p>套接字：包含一个流套接字并将其连接到指定主机上的指定端口</p>
-<h1 id="2、Socket类"><a href="#2、Socket类" class="headerlink" title="2、Socket类"></a>2、Socket类</h1><h2 id="2-1、客户端"><a href="#2-1、客户端" class="headerlink" title="2.1、客户端"></a>2.1、客户端</h2><p><strong>构造</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Socket(String host,<span class="type">int</span> port)</span><br><span class="line">创建一个流套接字并将其连接到指定主机上的指定端口号</span><br></pre></td></tr></table></figure>
-<p>参数</p>
-<ol>
-<li>String host：服务器的主机名称/IP地址</li>
-<li>int port：端口号</li>
-</ol>
-<p><strong>成员方法</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">OutputStream getOutputSTream()</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>返回此套接字的输出流</span><br><span class="line">InputStream getInputStream()</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>返回此套接字的输入流</span><br><span class="line">void <span class="keyword">close</span>()</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>关闭此套接字</span><br></pre></td></tr></table></figure>
-<p><strong>客户端实现步骤</strong></p>
-<ol>
-<li>创建一个客户端对象Socket，构造方法中绑定服务器的IP地址和端口号</li>
-<li>使用Socket对象中的getOutputStream获取网络字节输出流对象</li>
-<li>使用网络字节输出流对象的Write方法，给服务器发送数据</li>
-<li>使用Socket中的方法getInputSTream获取网络字节输入流InputStream对象</li>
-<li>使用网络字节输入流对象中的read方法读取服务器回写的数据</li>
-<li>释放资源（Socket）</li>
-</ol>
-<p><strong>注意</strong></p>
-<ol>
-<li>客户端和服务器进行交互必须使用Socket获取的流对象，不能使用自己的</li>
-<li>当我们创建客户端对象Socket的时候，就会去请求服务器经过3次握手建立连接</li>
-</ol>
-<h2 id="2-2、服务器"><a href="#2-2、服务器" class="headerlink" title="2.2、服务器"></a>2.2、服务器</h2><p>接收客户端的请求，给客户端回写数据</p>
-<p>ServeSocket：表示服务器的套接字</p>
-<p><strong>构造方法</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ServeSocket(<span class="type">int</span> port)创建绑定到特定端口的服务器套接字</span><br></pre></td></tr></table></figure>
-<p>必须明确是哪个客户端发起了请求，所以可使用accept方法获取到请求的客户端Socket</p>
-<p><strong>成员方法</strong></p>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Socket accept()</span><br><span class="line"><span class="operator">/</span><span class="operator">/</span>侦听并接受此套接字的连接</span><br></pre></td></tr></table></figure>
-<p><strong>服务器实现过程</strong></p>
-<ol>
-<li>创建服务器ServeSocket对象，向系统要指定的端口号</li>
-<li>使用ServeSocket对象中的方法accept，获取到请求的客户端对象</li>
-<li>使用Socket对象中的方法getInputStream获取网络字节输入流对象</li>
-<li>使用网络字节输入流中的read方法读取客户端发送的数据</li>
-<li>获取网络字节输出流</li>
-<li>使用网络字节输出流给客户端回写数据</li>
-<li>释放资源（Socket、ServeSocket）</li>
-</ol>
-<h2 id="2-3、注意"><a href="#2-3、注意" class="headerlink" title="2.3、注意"></a>2.3、注意</h2><p>实际使用中不用释放资源，且服务器会写成死循环，让其一直为运行状态</p>
-<h1 id="3、实例"><a href="#3、实例" class="headerlink" title="3、实例"></a>3、实例</h1><h2 id="3-1、文件上传"><a href="#3-1、文件上传" class="headerlink" title="3.1、文件上传"></a>3.1、文件上传</h2><h3 id="客户端"><a href="#客户端" class="headerlink" title="客户端"></a>客户端</h3><p>读取本地文件，上传到服务器，读取服务器的回写数据</p>
-<p>明确</p>
-<ol>
-<li>上传的数据源</li>
-<li>目的地：服务器</li>
-</ol>
-<p>实现步骤</p>
-<ol>
-<li>创建一个本地字节输入流，FileInputStream，绑定要读取的数据源</li>
-<li>创建一个客户端Socket对象，构造方法中绑定服务器的IP和端口</li>
-<li>使用Socket中的getOutputStream</li>
-<li>使用本地的字节输入流中的read读取本地文件</li>
-<li>使用网络字节输出流中的write把读取到的文件上传到服务器中</li>
-<li>使用Socket中的InputStream</li>
-<li>使用网络字节输入流的read方法读取服务器回写的数据</li>
-<li>释放资源（FileInputStream，Socket）</li>
-</ol>
-<h3 id="服务器"><a href="#服务器" class="headerlink" title="服务器"></a>服务器</h3><p>读取客户端上传的文件，保存到服务器的硬盘上，给客户端回写上传成功的消息</p>
-<p>明确：数据源，目的地</p>
-<p><strong>实现过程</strong></p>
-<ol>
-<li>创建服务器ServeSocket对象，和系统要指定的端口号</li>
-<li>使用ServeSocket的accept方法，获取到请求的客户端Socket对象</li>
-<li>使用Socket对象的方法getInputSTream获取网络字节输入流对象</li>
-<li>判断路径是否存在，不存在则创建</li>
-<li>创建本地字节输出流对象，FIleOutputStream，构造中绑定要输出的目的地</li>
-<li>使用网络字节输入流中的read方法读取客户端上传的文件</li>
-<li>使用本地字节输出流的write方法，把读取到的文件保存到服务器的硬盘</li>
-<li>使用Socket中的getOutputStream方法，获取网络字节输出流</li>
-<li>使用网络字节输出流，回写数据</li>
-<li>释放资源（FIleOutputStream，Socket，ServeSocket）</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/06/38%E3%80%81%E7%BD%91%E7%BB%9C%E7%BC%96%E7%A8%8B/" data-id="ckjlic6ju001248u81dxc1sem" data-title="" class="article-share-link">分享</a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-37、打印流" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2021/01/06/37%E3%80%81%E6%89%93%E5%8D%B0%E6%B5%81/" class="article-date">
-  <time class="dt-published" datetime="2021-01-06T14:13:22.678Z" itemprop="datePublished">2021-01-06</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <h1 id="37、打印流"><a href="#37、打印流" class="headerlink" title="37、打印流"></a>37、打印流</h1><hr>
-<h1 id="1、概述"><a href="#1、概述" class="headerlink" title="1、概述"></a>1、概述</h1><p>PrintStream位于IO包，继承了OutputStream，为其他输出流添加了功能，使他们能够更方便的打印各种数据值表示形式</p>
-<h1 id="2、特点"><a href="#2、特点" class="headerlink" title="2、特点"></a>2、特点</h1><p>只负责数据输出，不负责读取</p>
-<p>不会抛出IO异常</p>
-<p>特有方法有print和println</p>
-<h1 id="3、构造"><a href="#3、构造" class="headerlink" title="3、构造"></a>3、构造</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">PrintStream(OutputStream out)</span><br><span class="line"><span class="comment">//输出目的地是一个字节输出流</span></span><br><span class="line">PrintStream(File file)</span><br><span class="line"><span class="comment">//目的地是一个文件</span></span><br><span class="line">PrintStream(String fileName)</span><br><span class="line"><span class="comment">//目的地是一个文件路径</span></span><br></pre></td></tr></table></figure>
-<h1 id="4、注意"><a href="#4、注意" class="headerlink" title="4、注意"></a>4、注意</h1><ol>
-<li>如果使用继承自父类的write方法写数据，那么查看数据的时候会查询编码表</li>
-<li>如果使用print/println写数据，写的数据会原样输出</li>
-<li>可以使用System.setOut方法更改输出语句的目的地</li>
-</ol>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2021/01/06/37%E3%80%81%E6%89%93%E5%8D%B0%E6%B5%81/" data-id="ckjlic6jr001148u88tsm0dz7" data-title="" class="article-share-link">分享</a>
+      <a data-url="http://example.com/2021/01/06/hello-world/" data-id="ckjlj313o0001p8u89lpodarm" data-title="Hello World" class="article-share-link">分享</a>
       
       
       
@@ -680,11 +157,6 @@
 
   
 
-
-  <nav id="page-nav">
-    
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页 &raquo;</a>
-  </nav>
 
 </section>
         
@@ -715,23 +187,11 @@
       <ul>
         
           <li>
-            <a href="/2021/01/06/README/">(no title)</a>
+            <a href="/2021/01/06/JDBC/">JDBC</a>
           </li>
         
           <li>
-            <a href="/2021/01/06/45%E3%80%81JDBC/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/06/44%E3%80%81%E6%B3%A8%E8%A7%A3/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/06/43%E3%80%81%E5%8F%8D%E5%B0%84/">(no title)</a>
-          </li>
-        
-          <li>
-            <a href="/2021/01/06/42%E3%80%81Junit%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95/">(no title)</a>
+            <a href="/2021/01/06/hello-world/">Hello World</a>
           </li>
         
       </ul>
