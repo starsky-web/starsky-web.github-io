@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Test, Hexo">
+    <meta name="keywords" content="如何找数组中唯一成对的数, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Test | Hexo</title>
+    <title>如何找数组中唯一成对的数 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -310,12 +310,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/2.jpg')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('/medias/featureimages/12.jpg')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Test</h1>
+                    <h1 class="description center-align post-title">如何找数组中唯一成对的数</h1>
                 </div>
             </div>
         </div>
@@ -443,7 +443,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-01-06
+                    2021-03-02
                 </div>
                 
 
@@ -464,8 +464,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <p>只是试一下能不能用</p>
-
+                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>1-1000这1000个数放在含有1001个元素的数组中，只有唯一的一个元素值重复，其他均只出现一次。每个数组元素只能访问一次，设计一个算法，将他找出来</p>
+<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">T1_2</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//构造数组</span></span><br><span class="line">        <span class="keyword">int</span> N = <span class="number">1001</span>;</span><br><span class="line">        <span class="keyword">int</span>[] arr = <span class="keyword">new</span> <span class="keyword">int</span>[N];</span><br><span class="line">        <span class="comment">//前1000位按顺序填入</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; arr.length - <span class="number">1</span>; i++) &#123;</span><br><span class="line">            arr[i]=i+<span class="number">1</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//最后一个数，是随机数</span></span><br><span class="line">        arr[arr.length-<span class="number">1</span>] = <span class="keyword">new</span> Random().nextInt(N-<span class="number">1</span>)+<span class="number">1</span>;</span><br><span class="line">        <span class="comment">//找一个随机下标</span></span><br><span class="line">        <span class="keyword">int</span> index = <span class="keyword">new</span> Random().nextInt(N);</span><br><span class="line">        <span class="comment">//调用方法，将随机数放到随机下标处</span></span><br><span class="line">        swap(arr, index, arr.length-<span class="number">1</span>);</span><br><span class="line">        <span class="comment">//重新获取一个随机数填补最后一位的空缺</span></span><br><span class="line">        arr[arr.length-<span class="number">1</span>]=<span class="keyword">new</span> Random().nextInt(N);</span><br><span class="line">        <span class="comment">//打印数组，方便观察</span></span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        <span class="comment">//开始找出唯一成对的数</span></span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * 思路：</span></span><br><span class="line"><span class="comment">         *      相当于将数组中的内容和1-1000连续异或</span></span><br><span class="line"><span class="comment">         *      即重复的那个数会有三个，其他的数有两个</span></span><br><span class="line"><span class="comment">         *      因为一个数异或他本身等于0，所以最后只剩下重复的那个数</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">        <span class="keyword">int</span> x1 = <span class="number">0</span>;<span class="comment">//存储结果</span></span><br><span class="line">        <span class="comment">//第一遍异或，1-1000的连续异或</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">1</span>; i &lt;= N-<span class="number">1</span>; i++) &#123;</span><br><span class="line">            x1=(x1^i);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//此时x1为1-1000连续异或的结果，用于在下面的循环中消除重复</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">//第二遍异或，消除重复</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            x1=x1^arr[i];</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//数组中只有重复的数是两个，其他数字均为1个</span></span><br><span class="line">        <span class="comment">//与第一遍的结果进行连续异或，相当于不重复的数各有两个，而重复的数会出现三个</span></span><br><span class="line">        <span class="comment">//所以重复的数会剩最后一个</span></span><br><span class="line">        System.out.println(x1);</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(<span class="keyword">int</span>[] array,<span class="keyword">int</span> x,<span class="keyword">int</span> y)</span></span>&#123;</span><br><span class="line">        <span class="keyword">int</span> xx = array[x];</span><br><span class="line">        <span class="keyword">int</span> yy = array[y];</span><br><span class="line">        array[x] = yy;</span><br><span class="line">        array[y] = xx;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
                 
             </div>
             <hr/>
@@ -491,7 +491,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/01/06/Test/">http://example.com/2021/01/06/Test/</a>
+                    <a href="http://example.com/2021/03/02/%E5%A6%82%E4%BD%95%E6%89%BE%E6%95%B0%E7%BB%84%E4%B8%AD%E5%94%AF%E4%B8%80%E6%88%90%E5%AF%B9%E7%9A%84%E6%95%B0/">http://example.com/2021/03/02/%E5%A6%82%E4%BD%95%E6%89%BE%E6%95%B0%E7%BB%84%E4%B8%AD%E5%94%AF%E4%B8%80%E6%88%90%E5%AF%B9%E7%9A%84%E6%95%B0/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -700,13 +700,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/02/%E5%A6%82%E4%BD%95%E6%89%BE%E6%95%B0%E7%BB%84%E4%B8%AD%E5%94%AF%E4%B8%80%E6%88%90%E5%AF%B9%E7%9A%84%E6%95%B0/">
+                <a href="/2021/03/02/%E6%89%BE%E5%87%BA%E8%90%BD%E5%8D%95%E7%9A%84%E6%95%B0/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="如何找数组中唯一成对的数">
+                        <img src="/medias/featureimages/0.jpg" class="responsive-img" alt="找出落单的数">
                         
-                        <span class="card-title">如何找数组中唯一成对的数</span>
+                        <span class="card-title">找出落单的数</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -737,13 +737,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/01/06/hello-world/">
+                <a href="/2021/01/06/Test/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="Hello World">
+                        <img src="/medias/featureimages/2.jpg" class="responsive-img" alt="Test">
                         
-                        <span class="card-title">Hello World</span>
+                        <span class="card-title">Test</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
