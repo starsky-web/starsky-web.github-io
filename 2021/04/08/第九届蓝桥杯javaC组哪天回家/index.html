@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="找出落单的数, Hexo">
+    <meta name="keywords" content="第九届蓝桥杯javaC组哪天回家, Hexo">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>找出落单的数 | Hexo</title>
+    <title>第九届蓝桥杯javaC组哪天回家 | Hexo</title>
     <link rel="icon" type="image/png" href="/favicon.png">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -315,7 +315,7 @@
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">找出落单的数</h1>
+                    <h1 class="description center-align post-title">第九届蓝桥杯javaC组哪天回家</h1>
                 </div>
             </div>
         </div>
@@ -456,7 +456,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2021-03-02
+                    2021-04-08
                 </div>
                 
 
@@ -465,7 +465,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    197
+                    221
                 </div>
                 
 
@@ -482,9 +482,26 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>一个数组里除了某一个数字之外，其他的数字都出现了两次。请写出程序找出这个只出现一次的数字</p>
-<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><p>对数组进行连续异或，重复的都会被消除，最后剩下的就是落单的数</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">T1_3</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//创建101位的数组</span></span><br><span class="line">        <span class="keyword">int</span> N = <span class="number">101</span>;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">int</span> arr[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">101</span>];</span><br><span class="line">        <span class="comment">//步长为2，前100位相邻元素相同</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N - <span class="number">2</span>; i=i+<span class="number">2</span>) &#123;</span><br><span class="line">            arr[i] = i;</span><br><span class="line">            arr[i+<span class="number">1</span>] = i;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//最后一位为随机数，这里没有进行打乱</span></span><br><span class="line">        arr[N-<span class="number">1</span>]= <span class="keyword">new</span> Random().nextInt(N);</span><br><span class="line">        System.out.println(Arrays.toString(arr));</span><br><span class="line"></span><br><span class="line">        <span class="comment">//连续异或，重复的都会被消掉</span></span><br><span class="line">        <span class="keyword">int</span> x1 = <span class="number">0</span>;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; N; i++) &#123;</span><br><span class="line">            x1=x1^arr[i];</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(x1);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+                <h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p>小明被不明事理劫持，后被扔到X星再无问津，小明得知每天都有飞船飞往地球，但需要108元的船票，而他身无分文</p>
+<p>他决定在X星打工，好心的老板答应包食宿，第1天给他1元钱，并且，以后的每一天都比前一天多2元钱，直到他有足够的钱买票，请计算一下，小明在第几天能凑够108元，返回地球</p>
+<p>要求提交的是一个整数，表示第几天，请不要提交任何多余的内容</p>
+<h1 id="答案"><a href="#答案" class="headerlink" title="答案"></a>答案</h1><pre class=" language-java"><code class="language-java"><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">T9_A</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span>String<span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+        <span class="token keyword">int</span> sum <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span><span class="token comment" spellcheck="true">//用于存储当前的钱数</span>
+        <span class="token keyword">int</span> day <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+
+        <span class="token comment" spellcheck="true">//循环，当sum不足108时执行，a表示当天获得的钱数</span>
+
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token keyword">int</span> a <span class="token operator">=</span> <span class="token number">1</span><span class="token punctuation">;</span>sum<span class="token operator">&lt;</span><span class="token number">108</span><span class="token punctuation">;</span>a<span class="token operator">+=</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token operator">&amp;</span>#<span class="token number">123</span><span class="token punctuation">;</span>
+            sum<span class="token operator">+=</span>a<span class="token punctuation">;</span>
+            day<span class="token operator">++</span><span class="token punctuation">;</span>
+        <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+        System<span class="token punctuation">.</span>out<span class="token punctuation">.</span><span class="token function">println</span><span class="token punctuation">(</span>day<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+    <span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span>
+<span class="token operator">&amp;</span>#<span class="token number">125</span><span class="token punctuation">;</span></code></pre>
+
                 
             </div>
             <hr/>
@@ -510,7 +527,7 @@
                     </i>
                 </span>
                 <span class="reprint-info">
-                    <a href="http://example.com/2021/03/02/%E6%89%BE%E5%87%BA%E8%90%BD%E5%8D%95%E7%9A%84%E6%95%B0/">http://example.com/2021/03/02/%E6%89%BE%E5%87%BA%E8%90%BD%E5%8D%95%E7%9A%84%E6%95%B0/</a>
+                    <a href="http://example.com/2021/04/08/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AFjavaC%E7%BB%84%E5%93%AA%E5%A4%A9%E5%9B%9E%E5%AE%B6/">http://example.com/2021/04/08/%E7%AC%AC%E4%B9%9D%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AFjavaC%E7%BB%84%E5%93%AA%E5%A4%A9%E5%9B%9E%E5%AE%B6/</a>
                 </span>
             </div>
             <div class="reprint__notice">
@@ -723,13 +740,13 @@
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2021/03/02/%E4%BA%8C%E8%BF%9B%E5%88%B6%E4%B8%AD1%E7%9A%84%E4%B8%AA%E6%95%B0/">
+                <a href="/2021/04/08/%E7%AC%AC%E5%8D%81%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AFjavaC%E7%BB%84%E4%BA%BA%E7%89%A9%E7%9B%B8%E5%85%B3%E6%80%A7%E5%88%86%E6%9E%90/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/1.jpg" class="responsive-img" alt="二进制中1的个数">
+                        <img src="/medias/featureimages/18.jpg" class="responsive-img" alt="第十届蓝桥杯javaC组人物相关性分析">
                         
-                        <span class="card-title">二进制中1的个数</span>
+                        <span class="card-title">第十届蓝桥杯javaC组人物相关性分析</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -740,7 +757,7 @@
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2021-03-02
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-04-08
                         </span>
                         <span class="publish-author">
                             
@@ -772,13 +789,13 @@
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2021/03/02/%E5%A6%82%E4%BD%95%E6%89%BE%E6%95%B0%E7%BB%84%E4%B8%AD%E5%94%AF%E4%B8%80%E6%88%90%E5%AF%B9%E7%9A%84%E6%95%B0/">
+                <a href="/2021/04/08/%E7%AC%AC%E5%8D%81%E5%B1%8A%E8%93%9D%E6%A1%A5%E6%9D%AFjavaC%E7%BB%84%E7%AD%89%E5%B7%AE%E6%95%B0%E5%88%97/">
                     <div class="card-image">
                         
                         
-                        <img src="/medias/featureimages/12.jpg" class="responsive-img" alt="如何找数组中唯一成对的数">
+                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="第十届蓝桥杯javaC组等差数列">
                         
-                        <span class="card-title">如何找数组中唯一成对的数</span>
+                        <span class="card-title">第十届蓝桥杯javaC组等差数列</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
@@ -789,7 +806,7 @@
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2021-03-02
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-04-08
                             </span>
                         <span class="publish-author">
                             
